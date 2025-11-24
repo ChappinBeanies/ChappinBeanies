@@ -2,33 +2,32 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url("pyramid-bg.png") center/cover fixed no-repeat;
+    background: url("pyramid-bg.png") center 30% / cover fixed no-repeat;
     color: white;
     text-align: center;
 }
 
-/* Lighter overlay so background (and person) show CLEARLY */
+/* Lighter overlay so background and person show more */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.25); /* <-- MUCH lighter now */
+    background: rgba(0,0,0,0.25);
     z-index: -1;
 }
 
 /* HEADER (faded so background shows through) */
 header {
     padding: 25px 10px 30px;
-    background: rgba(0, 80, 160, 0.35); /* <-- transparent blue */
+    background: rgba(0, 80, 160, 0.35);
     border-bottom: 3px solid #00AEEF;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 18px;
-    backdrop-filter: blur(2px); /* subtle blur */
+    backdrop-filter: blur(2px);
 }
 
-/* Top brand layout */
 .brand {
     display: flex;
     align-items: center;
@@ -41,26 +40,25 @@ header {
     align-items: center;
 }
 
-/* FLAG ICONS — bigger & stronger waving animation */
+/* Medium flags + smoother wave */
 .flag {
-    width: 65px;               /* slightly bigger */
+    width: 50px;
     height: auto;
     border-radius: 4px;
     box-shadow: 0 0 6px rgba(0,0,0,0.6);
-    animation: wave 1.25s ease-in-out infinite;
+    animation: wave 1.6s ease-in-out infinite;
     transform-origin: left center;
 }
 
-/* Stronger waving */
+/* smoother waving animation */
 @keyframes wave {
     0%   { transform: rotate(0deg) translateY(0px); }
-    25%  { transform: rotate(8deg) translateY(-2px); }
+    25%  { transform: rotate(6deg) translateY(-2px); }
     50%  { transform: rotate(0deg) translateY(0); }
-    75%  { transform: rotate(-8deg) translateY(2px); }
+    75%  { transform: rotate(-6deg) translateY(2px); }
     100% { transform: rotate(0deg) translateY(0); }
 }
 
-/* Title text */
 header h1 {
     font-size: 38px;
     margin: 0;
@@ -72,9 +70,9 @@ header p {
     opacity: 0.95;
 }
 
-/* SECTION CARDS */
+/* CARDS with Guatemalan Textile Border */
 .card {
-    background: rgba(0,0,0,0.55); /* <-- slightly more transparent */
+    background: rgba(0,0,0,0.55);
     margin: 25px auto;
     padding: 25px;
     width: 90%;
@@ -105,7 +103,7 @@ h2 {
     font-size: 18px;
 }
 
-/* Gallery grid */
+/* Gallery Grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -157,7 +155,7 @@ footer {
     margin-top: 25px;
 }
 
-/* Floating Instagram order button */
+/* FLOATING Instagram Button */
 .float-btn {
     position: fixed;
     right: 18px;
@@ -179,7 +177,7 @@ footer {
     color: #0077cc;
 }
 
-/* Mobile view */
+/* Mobile tweaks */
 @media (max-width: 600px) {
     header h1 {
         font-size: 30px;
@@ -194,9 +192,16 @@ footer {
         gap: 6px;
     }
     .flag {
-        width: 50px;
+        width: 42px;
     }
 }
+
+
+
+
+
+
+    
 
     
 
