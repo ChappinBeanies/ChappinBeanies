@@ -1,78 +1,76 @@
-/* Full Guatemala + Forest + Pyramid Background Theme */
+/* Full Guatemala + Forest + Pyramid Background Theme (Adjusted) */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
 
     /* Move background up so the person is visible */
-    background: url("pyramid-bg.png") center 12% / cover fixed no-repeat;
-
+    background: url("pyramid-bg.png") center 8% / cover fixed no-repeat;
     color: white;
     text-align: center;
 }
 
-/* Forest-tone overlay + leaf texture for premium modern style */
+/* Remove heavy green tint — make pyramid clearer */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
 
-    /* Light green tint + transparency for vibrant background */
-    background:
-        rgba(0, 35, 0, 0.22);
+    /* Very light natural tint only */
+    background: rgba(0, 40, 0, 0.08);
 
-    backdrop-filter: brightness(1.05);
+    /* lighten image slightly */
+    backdrop-filter: brightness(1.12);
 
     z-index: -1;
 }
 
-/* HEADER — forest transparent + pyramid visible */
+/* HEADER — lighter so pyramid shows through */
 header {
     padding: 25px 10px 32px;
 
-    /* Light forest green transparent for modern clean look */
-    background: rgba(0, 70, 0, 0.28);
+    /* 70% less green — smoother transparency */
+    background: rgba(0, 70, 0, 0.14);
 
-    border-bottom: 3px solid #00e6a0; /* forest mint-teal */
+    border-bottom: 3px solid #00e6a0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 18px;
 
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(2px);
 }
 
 /* Brand row */
 .brand {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
 }
 
-/* Title glow */
+/* Title glow softer */
 .brand-text h1 {
-    text-shadow: 0 0 12px rgba(0, 255, 180, 0.65);
+    text-shadow: 0 0 8px rgba(0, 255, 180, 0.45);
 }
 
-/* FLAG — larger, smoother waving */
+/* FLAGS — medium size + gentler wave */
 .flag {
-    width: 66px;
+    width: 60px;
     height: auto;
     border-radius: 4px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.55);
 
-    box-shadow: 0 0 8px rgba(0,0,0,0.65);
-
-    animation: wave 1.85s ease-in-out infinite;
-    transform-origin: left center;
+    animation: wave 2.6s ease-in-out infinite;
+    transform-origin: center;
 }
 
-/* Bigger smoother waving animation */
+/* Smoother, more realistic wave */
 @keyframes wave {
-    0%   { transform: rotate(0deg) translateY(0px); }
-    25%  { transform: rotate(10deg) translateY(-3px); }
-    50%  { transform: rotate(0deg) translateY(0); }
-    75%  { transform: rotate(-10deg) translateY(3px); }
-    100% { transform: rotate(0deg) translateY(0); }
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(6deg); }
+    50%  { transform: rotate(0deg); }
+    75%  { transform: rotate(-6deg); }
+    100% { transform: rotate(0deg); }
 }
 
 header h1 {
@@ -86,9 +84,9 @@ header p {
     opacity: 0.95;
 }
 
-/* FOREST TRANSLUCENT CARDS with mint border */
+/* CARD — reduce green tint for modern clean look */
 .card {
-    background: rgba(0, 0, 0, 0.48);
+    background: rgba(0, 0, 0, 0.42);
     margin: 26px auto;
     padding: 26px;
     width: 90%;
@@ -97,23 +95,23 @@ header p {
 
     border: 3px solid transparent;
     background-image:
-        linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)),
+        linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42)),
         linear-gradient(135deg, #00e6a0, #ffffff, #00e6a0);
     background-origin: border-box;
     background-clip: padding-box, border-box;
 
-    box-shadow: 0 0 18px rgba(0,0,0,0.6);
+    box-shadow: 0 0 16px rgba(0,0,0,0.55);
 }
 
-/* Section titles */
+/* Titles */
 h2 {
     color: #00e6a0;
     font-size: 29px;
     margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(0,255,170,0.6);
+    text-shadow: 0 0 8px rgba(0,255,170,0.5);
 }
 
-/* Pricing list */
+/* Pricing */
 .products ul {
     list-style: none;
     padding: 0;
@@ -121,7 +119,7 @@ h2 {
     font-size: 18px;
 }
 
-/* GALLERY GRID */
+/* Gallery */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -132,16 +130,14 @@ h2 {
     width: 100%;
     border-radius: 12px;
     border: 3px solid #00e6a0;
-
-    box-shadow: 0 0 12px rgba(0,255,170,0.5);
+    box-shadow: 0 0 10px rgba(0,255,170,0.45);
     transition: 0.28s ease;
 }
 
-/* Glow hover */
 .grid img:hover {
     transform: scale(1.08);
     opacity: 0.97;
-    box-shadow: 0 0 24px rgba(0,255,170,0.9);
+    box-shadow: 0 0 20px rgba(0,255,170,0.8);
 }
 
 /* Buttons */
@@ -175,7 +171,7 @@ footer {
     margin-top: 25px;
 }
 
-/* Floating Instagram button */
+/* Floating IG button */
 .float-btn {
     position: fixed;
     right: 18px;
@@ -197,7 +193,7 @@ footer {
     color: #003d22;
 }
 
-/* Mobile tweaks */
+/* Mobile */
 @media (max-width: 600px) {
     header h1 {
         font-size: 31px;
@@ -209,9 +205,9 @@ footer {
         font-size: 24px;
     }
     .brand {
-        gap: 8px;
+        gap: 10px;
     }
     .flag {
-        width: 52px;
+        width: 54px;
     }
 }
