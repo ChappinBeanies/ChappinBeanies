@@ -1,124 +1,127 @@
-/* Forest + Guatemala Theme with Pyramid Background */
+/* Full Guatemala + Forest + Pyramid Background Theme */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
 
-    /* Move background UP so the person is visible */
-    background: url("pyramid-bg.png") center 18% / cover fixed no-repeat;
+    /* Move background up so the person is visible */
+    background: url("pyramid-bg.png") center 12% / cover fixed no-repeat;
 
     color: white;
     text-align: center;
 }
 
-/* Even lighter overlay so forest + pyramid show more */
+/* Forest-tone overlay + leaf texture for premium modern style */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
 
-    /* Forest-tone darkening overlay */
-    background: rgba(0, 40, 0, 0.25); 
+    /* Light green tint + transparency for vibrant background */
+    background:
+        rgba(0, 35, 0, 0.22);
+
+    backdrop-filter: brightness(1.05);
+
     z-index: -1;
 }
 
-/* HEADER — more transparent + forest tone */
+/* HEADER — forest transparent + pyramid visible */
 header {
-    padding: 25px 10px 30px;
+    padding: 25px 10px 32px;
 
-    /* subtle forest tint + transparency */
-    background: rgba(0, 60, 0, 0.35);
+    /* Light forest green transparent for modern clean look */
+    background: rgba(0, 70, 0, 0.28);
 
-    /* faint green/blue border */
-    border-bottom: 3px solid #00c98d;
+    border-bottom: 3px solid #00e6a0; /* forest mint-teal */
 
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 18px;
 
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
 }
 
+/* Brand row */
 .brand {
     display: flex;
     align-items: center;
     gap: 14px;
 }
 
-.brand-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Title glow */
+.brand-text h1 {
+    text-shadow: 0 0 12px rgba(0, 255, 180, 0.65);
 }
 
-/* Larger, cleaner flags with smoother animation */
+/* FLAG — larger, smoother waving */
 .flag {
-    width: 62px; /* larger */
+    width: 66px;
     height: auto;
     border-radius: 4px;
-    box-shadow: 0 0 6px rgba(0,0,0,0.6);
 
-    animation: wave 1.7s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(0,0,0,0.65);
+
+    animation: wave 1.85s ease-in-out infinite;
     transform-origin: left center;
 }
 
-/* Bigger and smoother wave */
+/* Bigger smoother waving animation */
 @keyframes wave {
     0%   { transform: rotate(0deg) translateY(0px); }
-    25%  { transform: rotate(7deg) translateY(-3px); }
+    25%  { transform: rotate(10deg) translateY(-3px); }
     50%  { transform: rotate(0deg) translateY(0); }
-    75%  { transform: rotate(-7deg) translateY(3px); }
+    75%  { transform: rotate(-10deg) translateY(3px); }
     100% { transform: rotate(0deg) translateY(0); }
 }
 
-/* Title and subtitle */
 header h1 {
-    font-size: 38px;
+    font-size: 40px;
     margin: 0;
-    text-shadow: 0 0 8px rgba(0,0,0,0.5);
 }
 
 header p {
-    margin: 2px 0 0;
-    font-size: 17px;
+    margin: 3px 0 0;
+    font-size: 18px;
     opacity: 0.95;
 }
 
-/* Forest-themed translucent card boxes */
+/* FOREST TRANSLUCENT CARDS with mint border */
 .card {
-    background: rgba(0,0,0,0.55);
-    margin: 25px auto;
-    padding: 25px;
+    background: rgba(0, 0, 0, 0.48);
+    margin: 26px auto;
+    padding: 26px;
     width: 90%;
     max-width: 900px;
-    border-radius: 14px;
+    border-radius: 16px;
 
-    /* forest green gradient border */
     border: 3px solid transparent;
     background-image:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        linear-gradient(135deg, #00c98d, white, #00c98d);
+        linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)),
+        linear-gradient(135deg, #00e6a0, #ffffff, #00e6a0);
     background-origin: border-box;
     background-clip: padding-box, border-box;
 
-    box-shadow: 0 0 14px rgba(0,0,0,0.5);
+    box-shadow: 0 0 18px rgba(0,0,0,0.6);
 }
 
+/* Section titles */
 h2 {
-    color: #00c98d; /* forest teal */
-    font-size: 28px;
+    color: #00e6a0;
+    font-size: 29px;
     margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0,255,170,0.6);
 }
 
 /* Pricing list */
 .products ul {
     list-style: none;
     padding: 0;
-    line-height: 1.8;
+    line-height: 1.85;
     font-size: 18px;
 }
 
-/* Gallery Grid */
+/* GALLERY GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -127,44 +130,46 @@ h2 {
 
 .grid img {
     width: 100%;
-    border-radius: 10px;
-    border: 3px solid #00c98d; /* forest teal */
-    box-shadow: 0 0 10px rgba(0, 174, 239, 0.4);
-    transition: 0.25s ease;
+    border-radius: 12px;
+    border: 3px solid #00e6a0;
+
+    box-shadow: 0 0 12px rgba(0,255,170,0.5);
+    transition: 0.28s ease;
 }
 
+/* Glow hover */
 .grid img:hover {
-    transform: scale(1.07);
-    opacity: 0.95;
-    box-shadow: 0 0 20px rgba(0, 205, 130, 0.9); /* forest glow */
+    transform: scale(1.08);
+    opacity: 0.97;
+    box-shadow: 0 0 24px rgba(0,255,170,0.9);
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
-    background: #00c98d;
+    background: #00e6a0;
     padding: 12px 20px;
     margin: 6px;
     color: black;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
     transition: 0.2s ease;
 }
 
 .btn.primary {
     background: white;
-    color: #005f30;
+    color: #005f33;
 }
 
 .btn:hover {
-    background: #b0ffe0;
-    color: #004422;
+    background: #b8ffe7;
+    color: #003d22;
 }
 
 /* Footer */
 footer {
-    padding: 18px;
+    padding: 20px;
     font-size: 14px;
     background: rgba(0,0,0,0.85);
     margin-top: 25px;
@@ -175,27 +180,27 @@ footer {
     position: fixed;
     right: 18px;
     bottom: 18px;
-    background: #00c98d;
+    background: #00e6a0;
     color: black;
     font-weight: bold;
-    padding: 12px 18px;
+    padding: 12px 20px;
     border-radius: 999px;
     text-decoration: none;
-    box-shadow: 0 0 12px rgba(0,0,0,0.7);
-    font-size: 14px;
+    box-shadow: 0 0 14px rgba(0,0,0,0.7);
+    font-size: 15px;
     z-index: 50;
     transition: 0.2s ease;
 }
 
 .float-btn:hover {
-    background: #b0ffe0;
-    color: #004422;
+    background: #b8ffe7;
+    color: #003d22;
 }
 
-/* Mobile */
+/* Mobile tweaks */
 @media (max-width: 600px) {
     header h1 {
-        font-size: 30px;
+        font-size: 31px;
     }
     .card {
         padding: 20px;
@@ -204,9 +209,9 @@ footer {
         font-size: 24px;
     }
     .brand {
-        gap: 6px;
+        gap: 8px;
     }
     .flag {
-        width: 48px;
+        width: 52px;
     }
 }
