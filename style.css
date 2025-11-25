@@ -1,142 +1,153 @@
-/* GLOBAL ------------------------------------------------------------ */
-html { scroll-behavior: smooth; }
-
+/* BODY WITH DARKER PYRAMID + CENTERED */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: Arial, sans-serif;
 
-  /* Pyramid visible and darker */
-  background: 
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-    url("pyramid-bg.png") center 35% / 115% no-repeat fixed;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("pyramid-bg.png") center 35% / 115% no-repeat fixed;
 
-  color: #fff;
+    color: #ffffff;
 }
 
-/* Subtle fog layer */
+/* Softer fog overlay */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: rgba(255,255,255,0.01);
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.01);
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* TEXT OUTLINE ------------------------------------------------------ */
-* {
-  text-shadow:
-    -1px -1px 0 #063410,
-     1px -1px 0 #063410,
-    -1px  1px 0 #063410,
-     1px  1px 0 #063410;
-}
-
-/* HEADER ------------------------------------------------------------- */
+/* HEADER */
 header {
-  text-align: center;
-  padding-top: 50px;
-  margin-bottom: 30px;
+    text-align: center;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
 }
 
-.flag-header {
-  width: 260px;
-  display: block;
-  margin: 0 auto 10px auto;
-  animation: waveFlag 3s ease-in-out infinite;
+.dual-flag {
+    width: 170px;
+    animation: wave 4s ease-in-out infinite;
 }
 
-@keyframes waveFlag {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(2deg) scale(1.04); }
-  100% { transform: rotate(0deg) scale(1); }
+/* FLAG WAVE ANIMATION */
+@keyframes wave {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(2deg) scale(1.03); }
+    100% { transform: rotate(0deg) scale(1); }
 }
 
-header h1 {
-  font-size: 44px;
-  font-weight: 900;
-  color: #fff;
+h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+    color: #ffffff;
+    text-shadow: 0 0 4px #0f3b01, 0 0 8px #0f3b01;
 }
 
-.tagline {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: -5px;
-  color: #fff;
+.subtitle {
+    font-size: 15px;
+    margin-top: 0;
+    color: #e8ffe8;
+    text-shadow: 0 0 4px #0f3b01;
 }
 
-/* CARDS -------------------------------------------------------------- */
+/* NEW HEADER INSTAGRAM LINK */
+.header-insta a {
+    color: #7aff7a;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 15px;
+}
+.header-insta a:hover {
+    color: #00ff55;
+    text-shadow: 0 0 6px #00ff55;
+}
+
+/* FLOATING INSTAGRAM BUTTON */
+.float-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #1c6b2a;
+    color: white;
+    padding: 15px 22px;
+    border-radius: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.float-btn:hover {
+    background: #29a63c;
+    transform: scale(1.1);
+}
+
+/* CARD SECTIONS */
 .card {
-  width: 85%;
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(3px);
-  border: 7px solid rgba(5, 45, 12, 1);
-  border-radius: 20px;
-  box-shadow: 0 5px 18px rgba(0,0,0,0.45);
-  text-align: center;
+    width: 85%;
+    max-width: 850px;
+    margin: 35px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 15px;
+    border: 4px solid #1b4a1d;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
-.card h2,
-.card p,
-.card li {
-  color: #fff;
-  font-weight: bold;
+/* HEADERS */
+h2 {
+    font-size: 26px;
+    color: #ffffff;
+    text-shadow: 0 0 3px #0f3b01, 0 0 6px #0f3b01;
+    margin-bottom: 14px;
 }
 
-/* LINKS POP ---------------------------------------------------------- */
+/* REMOVE BULLETS */
+.clean-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Gallery grid */
+.gallery {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 140px;
+    height: auto;
+    border-radius: 12px;
+    border: 4px solid #1b4a1d;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 14px rgba(0,0,0,0.7);
+}
+
+/* Contact links */
 a {
-  color: #00ff9d;
-  font-weight: bold;
-  text-decoration: none;
+    color: #7aff7a;
+    font-weight: bold;
 }
-
 a:hover {
-  color: #00ffaa;
-  text-decoration: underline;
-}
-
-/* GALLERY ------------------------------------------------------------ */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 22px;
-  margin-top: 20px;
-}
-
-.grid img {
-  width: 100%;
-  border-radius: 18px;
-  border: 6px solid rgba(5, 45, 12, 1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.grid img:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 25px rgba(5, 45, 12, 0.8);
-}
-
-/* FLOATING INSTAGRAM BUTTON ------------------------------------------ */
-.floating-ig {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #ffffffd8;
-  border: 3px solid #063410;
-  padding: 14px 22px;
-  border-radius: 40px;
-  font-size: 17px;
-  color: #063410;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-  z-index: 9999;
-  animation: floatIG 3s ease-in-out infinite;
-}
-
-@keyframes floatIG {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
+    color: #00ff55;
+    text-shadow: 0 0 5px #00ff55;
 }
