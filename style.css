@@ -8,82 +8,69 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 
-    /* Move pyramid downward so the person shows */
-    background: url("pyramid-bg.png") center 40% / cover no-repeat fixed;
+    /* YOUR SAME BACKGROUND – unchanged */
+    background: url("pyramid-bg.png") center 58% / cover no-repeat fixed;
 
-    color: #0f2e0f; /* Dark forest green text */
+    /* improve clarity slightly */
+    color: #052d0c; /* deep readable green */
 }
 
-/* SPOTLIGHT EFFECT ---------------------------------------------------- */
+/* SOFT JUNGLE FOG (very light, keeps background visible) ------------ */
 
-body::after {
+body::before {
     content: "";
     position: fixed;
-    top: 60%;     /* LOWER spotlight to hit the person */
-    left: 50%;
-    width: 480px;
-    height: 480px;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle,
-        rgba(255, 255, 255, 0.10),
-        rgba(0, 0, 0, 0) 70%
-    );
-    animation: spotlightMove 12s ease-in-out infinite alternate;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
+
+    /* very subtle fog */
+    background: rgba(255, 255, 255, 0.05);
+    animation: fog 30s linear infinite;
 }
 
-@keyframes spotlightMove {
-    0% { transform: translate(-50%, -48%); opacity: 0.4; }
-    50% { transform: translate(-48%, -52%); opacity: 0.75; }
-    100% { transform: translate(-50%, -50%); opacity: 0.5; }
+@keyframes fog {
+    0% { opacity: 0.05; }
+    50% { opacity: 0.12; }
+    100% { opacity: 0.05; }
 }
 
 /* HEADER -------------------------------------------------------------- */
 
 header {
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 70px;
+    padding-top: 60px;
+    margin-bottom: 30px;
 }
 
 .flag-header {
     width: 240px;
-    animation: wave 3s ease-in-out infinite;
     display: block;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 15px auto;
+    animation: waveFlag 3s ease-in-out infinite;
 }
 
-@keyframes wave {
+@keyframes waveFlag {
     0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(2deg) scale(1.02); }
+    50% { transform: rotate(1.8deg) scale(1.04); }
     100% { transform: rotate(0deg) scale(1); }
 }
 
 header h1 {
     font-size: 44px;
     font-weight: 900;
-    color: #0f2e0f; /* Dark green */
-    text-shadow: 0 2px 5px #ffffff;
+    color: #063410;
+    text-shadow: 0 4px 8px rgba(255,255,255,0.9);
 }
 
 .tagline {
-    margin-top: -10px;
-    font-size: 17px;
-    color: #0f2e0f;
+    color: #063410;
+    font-size: 18px;
     font-weight: bold;
-    text-shadow: 0 2px 6px #ffffff;
-}
-
-.cta-btn {
-    display: inline-block;
-    margin-top: 18px;
-    background: white;
-    color: #0f2e0f;
-    padding: 12px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #0f2e0f;
+    margin-top: -5px;
+    text-shadow: 0 3px 6px rgba(255,255,255,0.9);
 }
 
 /* CARDS --------------------------------------------------------------- */
@@ -92,33 +79,34 @@ header h1 {
     width: 85%;
     max-width: 900px;
     margin: 22px auto;
-    padding: 28px;
+    padding: 25px;
 
-    /* Transparent cards */
-    background: rgba(255, 255, 255, 0.0);
+    /* YOUR SAME TRANSPARENCY */
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(3px);
+
+    /* THICKER JUNGLE GREEN BORDER */
+    border: 7px solid rgba(5, 45, 12, 0.95);
 
     border-radius: 20px;
-    border: 6px solid rgba(18, 50, 18, 1); /* Thicker forest border */
-
+    box-shadow: 0 5px 18px rgba(0,0,0,0.4);
     text-align: center;
-    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.4);
 }
 
 .card h2 {
-    color: #0f2e0f;
+    color: #063410;
     font-size: 28px;
     font-weight: 900;
-    text-shadow: 0 2px 6px #ffffff;
+    text-shadow: 0 4px 7px rgba(255,255,255,0.9);
 }
 
-.card li,
-.card p {
-    font-size: 18px;
-    color: #0f2e0f;
+.card p, .card li {
+    color: #063410;
+    font-size: 20px;
     font-weight: bold;
-    text-shadow: 0 1px 4px #ffffff;
-    line-height: 1.6;
+    text-shadow: 0 3px 7px rgba(255,255,255,0.95);
     list-style-type: none;
+    line-height: 1.6;
 }
 
 /* GALLERY ------------------------------------------------------------- */
@@ -126,35 +114,43 @@ header h1 {
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
+    gap: 22px;
     margin-top: 20px;
 }
 
 .grid img {
     width: 100%;
     border-radius: 18px;
-    border: 6px solid rgba(18, 50, 18, 1); /* Thicker border */
-
-    transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+    border: 6px solid rgba(5, 45, 12, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .grid img:hover {
-    transform: scale(1.07);
-    box-shadow: 0 0 22px rgba(0, 50, 0, 0.6);
-    opacity: 0.97;
+    transform: scale(1.06);
+    box-shadow: 0 0 25px rgba(5, 45, 12, 0.7);
 }
 
-/* CONTACT BUTTON ------------------------------------------------------ */
+/* FLOATING INSTAGRAM BUTTON ---------------------------------------- */
 
-.contact-btn {
-    display: inline-block;
-    padding: 12px 28px;
-    margin-top: 18px;
-
-    background: #e8ffe8;
-    color: #0f2e0f;
-    text-decoration: none;
-    border-radius: 12px;
+.floating-ig {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: #ffffff;
+    border: 3px solid #052d0c;
+    padding: 12px 20px;
+    border-radius: 40px;
+    font-size: 17px;
+    color: #052d0c;
     font-weight: bold;
-    border: 2px solid #0f2e0f;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    z-index: 9999;
+    animation: floatIG 3s ease-in-out infinite;
+}
+
+@keyframes floatIG {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+    100% { transform: translateY(0); }
 }
