@@ -1,153 +1,117 @@
-/* BODY WITH DARKER PYRAMID + CENTERED */
+/* GENERAL RESET */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-        url("pyramid-bg.png") center 35% / 115% no-repeat fixed;
-
+    background: url("pyramid-bg.png") center -180px / cover fixed no-repeat;
     color: #ffffff;
-}
-
-/* Softer fog overlay */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.01);
-    pointer-events: none;
-    z-index: 0;
 }
 
 /* HEADER */
-header {
+.hero {
     text-align: center;
-    margin-top: 40px;
-    position: relative;
-    z-index: 2;
+    padding: 40px 20px 20px;
 }
 
-.dual-flag {
-    width: 170px;
-    animation: wave 4s ease-in-out infinite;
-}
-
-/* FLAG WAVE ANIMATION */
-@keyframes wave {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(2deg) scale(1.03); }
-    100% { transform: rotate(0deg) scale(1); }
-}
-
-h1 {
-    font-size: 36px;
-    margin-bottom: 5px;
-    color: #ffffff;
-    text-shadow: 0 0 4px #0f3b01, 0 0 8px #0f3b01;
-}
-
-.subtitle {
-    font-size: 15px;
-    margin-top: 0;
-    color: #e8ffe8;
-    text-shadow: 0 0 4px #0f3b01;
-}
-
-/* NEW HEADER INSTAGRAM LINK */
-.header-insta a {
-    color: #7aff7a;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 15px;
-}
-.header-insta a:hover {
-    color: #00ff55;
-    text-shadow: 0 0 6px #00ff55;
-}
-
-/* FLOATING INSTAGRAM BUTTON */
-.float-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #1c6b2a;
-    color: white;
-    padding: 15px 22px;
-    border-radius: 40px;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 0 12px rgba(0,0,0,0.6);
-    transition: 0.3s;
-    z-index: 10;
-}
-
-.float-btn:hover {
-    background: #29a63c;
-    transform: scale(1.1);
-}
-
-/* CARD SECTIONS */
-.card {
-    width: 85%;
-    max-width: 850px;
-    margin: 35px auto;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.18);
-    border-radius: 15px;
-    border: 4px solid #1b4a1d;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-/* HEADERS */
-h2 {
-    font-size: 26px;
-    color: #ffffff;
-    text-shadow: 0 0 3px #0f3b01, 0 0 6px #0f3b01;
-    margin-bottom: 14px;
-}
-
-/* REMOVE BULLETS */
-.clean-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Gallery grid */
-.gallery {
+.header-row {
     display: flex;
-    gap: 15px;
+    align-items: center;
     justify-content: center;
+    gap: 25px;
+}
+
+.title-block h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 8px black;
+}
+
+.title-block p {
+    margin: 4px 0 10px;
+    font-size: 16px;
+    text-shadow: 0 0 6px black;
+}
+
+.insta-main {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 18px;
+    background: #ffffffcc;
+    color: #0b3d0b;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* BIRD IMAGES */
+.side-bird {
+    width: 90px;
+    height: auto;
+    filter: drop-shadow(0 0 6px #000);
+}
+
+.left-bird { margin-right: 0; }
+.right-bird { margin-left: 0; }
+
+/* CARDS */
+.card {
+    background: rgba(0, 0, 0, 0.25);
+    border: 4px solid #1b4d28;
+    border-radius: 12px;
+    margin: 25px auto;
+    padding: 20px;
+    width: 80%;
+    backdrop-filter: blur(4px);
+}
+
+.card h2 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 0 7px #003300;
+}
+
+/* GALLERY */
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
     flex-wrap: wrap;
 }
 
-.gallery img {
-    width: 140px;
-    height: auto;
-    border-radius: 12px;
-    border: 4px solid #1b4a1d;
-    transition: 0.3s;
+.grid img {
+    width: 130px;
+    border-radius: 8px;
+    border: 3px solid #1b4d28;
+    transition: transform .25s ease-in-out;
 }
 
-.gallery img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 14px rgba(0,0,0,0.7);
+.grid img:hover {
+    transform: scale(1.05);
 }
 
-/* Contact links */
-a {
-    color: #7aff7a;
+/* CONTACT BUTTON */
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #1b4d28;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+/* FLOATING INSTAGRAM BUTTON */
+.floating-insta {
+    position: fixed;
+    right: 20px;
+    bottom: 25px;
+    padding: 14px 20px;
+    background: #1b4d28;
+    border-radius: 50px;
+    color: white;
     font-weight: bold;
-}
-a:hover {
-    color: #00ff55;
-    text-shadow: 0 0 5px #00ff55;
+    text-decoration: none;
+    box-shadow: 0 0 10px #000;
 }
