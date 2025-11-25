@@ -180,23 +180,44 @@ h1 {
     color: white;
 }
 
-/* FLOATING IG BUTTON */
+/* FLOATING IG BUTTON — GREEN, PULSE, GLOW, FLOAT ANIMATION */
 .floating-ig {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    background: #d62976;
+    background: #0a3a14; /* Dark Guatemalan jungle green */
     color: white;
     padding: 15px 22px;
     border-radius: 50px;
     font-size: 15px;
     font-weight: bold;
     text-decoration: none;
-    border: 3px solid white;
-    box-shadow: 0 0 12px rgba(0,0,0,0.6);
-    transition: transform .3s ease;
+    border: 3px solid #ffffffcc;
+    box-shadow: 0 0 14px rgba(0, 255, 80, 0.5);
+    z-index: 9999;
+
+    /* Animation */
+    animation: igFloat 3s ease-in-out infinite, igPulse 2.2s ease-in-out infinite;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .floating-ig:hover {
-    transform: scale(1.15);
+    transform: scale(1.17);
+    background: #0f5a1c; /* brighter jungle green */
+    box-shadow: 0 0 18px rgba(0,255,80,0.8);
 }
+
+/* Smooth floating effect */
+@keyframes igFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* Pulsing glow effect */
+@keyframes igPulse {
+    0% { box-shadow: 0 0 10px rgba(0,255,80,0.4); }
+    50% { box-shadow: 0 0 22px rgba(0,255,80,0.9); }
+    100% { box-shadow: 0 0 10px rgba(0,255,80,0.4); }
+}
+
